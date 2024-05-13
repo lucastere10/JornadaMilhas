@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using JornadaMilhasV1.Gerencidor;
+using JornadaMilhasV1.Gerenciador;
 using JornadaMilhasV1.Modelos;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JornadaMilhas.Test;
-
 public class GerenciadorDeOfertasRecuperaMaiorDesconto
 {
     [Fact]
@@ -41,7 +40,7 @@ public class GerenciadorDeOfertasRecuperaMaiorDesconto
         var rota = new Rota("Curitiba", "São Paulo");
 
         var fakerOferta = new Faker<OfertaViagem>()
-            .CustomInstantiator(f => new OfertaViagem(
+            .CustomInstantiator(f => new OfertaViagem (
                 rota,
                 fakerPeriodo.Generate(),
                 100 * f.Random.Int(1, 100))
@@ -76,5 +75,4 @@ public class GerenciadorDeOfertasRecuperaMaiorDesconto
         Assert.NotNull(oferta);
         Assert.Equal(precoEsperado, oferta.Preco, 0.0001);
     }
-
 }
